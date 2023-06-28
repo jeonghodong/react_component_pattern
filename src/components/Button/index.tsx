@@ -1,11 +1,11 @@
 import { Button as MuiButton } from "@mui/material";
-import { useState } from "react";
+// import { useState } from "react";
 
 export interface ButtonProps {
-  text: string;
+  text?: string;
   onClick?: () => void;
-  variant: "contained" | "outlined";
-  size: "large" | "medium" | "small" | "xsmall";
+  variant?: "contained" | "outlined";
+  size?: "large" | "medium" | "small" | "xsmall";
 }
 
 function ContainedButton({ ...props }: ButtonProps) {
@@ -17,18 +17,18 @@ function ContainedButton({ ...props }: ButtonProps) {
 }
 
 function OutlinedButton({ ...props }: ButtonProps) {
-  const [bordercolor, setBordercolor] = useState("5px solid #00A9B8");
+  // const [bordercolor, setBordercolor] = useState("5px solid #00A9B8");
 
-  const handleMouseDown = () => {
-    setBordercolor("5px solid #FFD400");
-  };
+  // const handleMouseDown = () => {
+  //   setBordercolor("5px solid #FFD400");
+  // };
 
   return (
     <MuiButton
       variant="outlined"
       size={props.size}
-      sx={{ border: bordercolor }}
-      onMouseOver={handleMouseDown}
+      // sx={{ border: bordercolor }}
+      // onMouseOver={handleMouseDown}
       onClick={props.onClick}
     >
       {props.text}
@@ -44,5 +44,3 @@ export default function Button({ ...props }: ButtonProps) {
 
   return <>{BUTTON_VARIANT[props.variant]}</>;
 }
-
-// size에서 오류 터지는 이유를 찾고 해결하세요.
