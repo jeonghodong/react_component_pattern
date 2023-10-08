@@ -1,10 +1,9 @@
 import { Button as MuiButton } from "@mui/material";
-// import { useState } from "react";
 
 export interface ButtonProps {
   text?: string;
   onClick?: () => void;
-  variant?: "contained" | "outlined";
+  variant?: "contained" | "outlined" | "texted";
   size?: "large" | "medium" | "small" | "xsmall";
 }
 
@@ -36,11 +35,26 @@ function OutlinedButton({ ...props }: ButtonProps) {
   );
 }
 
+function TextedButton({ ...props }: ButtonProps) {
+  return (
+    <MuiButton
+      variant="text"
+      size={props.size}
+      // sx={{ border: bordercolor }}
+      // onMouseOver={handleMouseDown}
+      onClick={props.onClick}
+    >
+      {props.text}
+    </MuiButton>
+  );
+}
+
 export default function Button({ ...props }: ButtonProps) {
   const BUTTON_VARIANT = {
     contained: <ContainedButton {...props} />,
     outlined: <OutlinedButton {...props} />,
+    texted: <TextedButton {...props} />,
   };
 
-  return <>{BUTTON_VARIANT[props.variant]}</>;
+  return <>{BUTTON_VARIANT[props.variant || "contained"]}</>;
 }
