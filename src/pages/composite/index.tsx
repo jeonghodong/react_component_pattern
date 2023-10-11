@@ -1,6 +1,6 @@
 import SpaceInfoCreateBox from "@/components/SpaceInfo/SpaceInfo";
 
-const WTF = () => {
+const composite = () => {
   return (
     <>
       <SpaceInfoCreateBox />
@@ -8,4 +8,4 @@ const WTF = () => {
   );
 };
 
-export default WTF;
+export default composite;
